@@ -40,4 +40,5 @@ public class JournalEntryController {
     public JournalEntry deleteEntry(@PathVariable long myId) {
         return journalEntries.remove(myId);
     }
+    //helps to get login
 }
