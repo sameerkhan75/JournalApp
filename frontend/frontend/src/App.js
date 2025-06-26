@@ -1,23 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from 'react';
+import AddJournal from './AddJournal';
+import JournalList from './JournalList';
+import axios from 'axios';
 
 function App() {
+  const [journals, setJournals] = useState([]);
+
+  const fetchJournals = async () => {
+    const res = await axios.get('http://localhost:8080/journal');
+    setJournals(res.data);
+  };
+
+  useEffect(() => {
+    fetchJournals();
+  }, []);
+
+  const addJournal = async (journal) => {
+    await axios.post('http://localhost:8080/journal', journal);
+    fetchJournals();
+  };
+
+  const deleteJournal = async (id) => {
+    await axios.delete(`http://localhost:8080/journal/id/${id}`);
+    fetchJournals();
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container my-4">
+      <h1 className="text-center">📝 Sam's Journal List</h1>
+      <AddJournal addJournal={addJournal} />
+      <JournalList journals={journals} deleteJournal={deleteJournal} />
     </div>
   );
 }
