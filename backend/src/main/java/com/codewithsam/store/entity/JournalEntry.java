@@ -4,6 +4,7 @@ public class JournalEntry {
     private long id;
     private String title;
     private String content;
+    private String image;
 
     public String getContent() {
         return content;
@@ -27,5 +28,13 @@ public class JournalEntry {
 
     public long getId() {
         return id;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
     }
 }

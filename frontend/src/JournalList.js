@@ -8,9 +8,13 @@ const JournalList = ({ journals, deleteJournal }) => {
       {journals.length === 0 ? (
         <p>No journal entries available.</p>
       ) : (
-        journals.map((journal) => (
-          <JournalItem key={journal.id} journal={journal} deleteJournal={deleteJournal} />
-        ))
+        <div className="row">
+          {journals.map((journal) => (
+            <div className="col-md-4 d-flex" key={journal.id}>
+              <JournalItem journal={journal} deleteJournal={deleteJournal} />
+            </div>
+          ))}
+        </div>
       )}
     </div>
   );
