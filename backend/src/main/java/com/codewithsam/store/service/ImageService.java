@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 import org.springframework.web.multipart.MultipartFile;
 
+import jakarta.annotation.PostConstruct;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.nio.file.Files;
@@ -24,13 +25,17 @@ import java.util.UUID;
 public class ImageService {
     
     private final ImageRepository imageRepository;
-    private final Path fileStorageLocation;
+    private Path fileStorageLocation;
     
     @Value("${app.file.upload-dir}")
     private String uploadDir;
     
     public ImageService(ImageRepository imageRepository) {
         this.imageRepository = imageRepository;
+    }
+    
+    @PostConstruct
+    public void init() {
         this.fileStorageLocation = Paths.get(uploadDir).toAbsolutePath().normalize();
         
         try {
