@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import AddJournal from './AddJournal';
 import JournalList from './JournalList';
 import axios from 'axios';
+import './App.css';
+import './index.css';
 
 function App() {
   const [journals, setJournals] = useState([]);

@@ -16,3 +16,19 @@
 .App-link {
   color: #61dafb;
 }
+
+h1, h3 {
+  font-family: 'Indie Flower', cursive !important;
+}
+
+/* Override Bootstrap styles specifically */
+.container h1,
+.text-center h1,
+h1.text-center {
+  font-family: 'Indie Flower', cursive !important;
+}
+
+/* Apply to all text elements */
+body, div, p, span, input, textarea, button {
+  font-family: 'Indie Flower', cursive !important;
+}
