@@ -27,7 +27,7 @@ function App() {
 
   return (
     <div className="container my-4">
-      <h1 className="text-center">📝 Sam's Journal List</h1>
+      <h1 className="text-center">LivingTheMoment</h1>
       <AddJournal addJournal={addJournal} />
       <JournalList journals={journals} deleteJournal={deleteJournal} />
     </div>
