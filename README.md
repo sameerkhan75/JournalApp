@@ -1,3 +1,5 @@
+![App Screenshot](frontend/image.png)
+
 # 📓 Daily Journal Website
 
 A full-stack web application where users can **share daily images**, **write a title**, and **describe their day**.
