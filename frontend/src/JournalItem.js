@@ -15,10 +15,11 @@ const JournalItem = ({ journal, deleteJournal }) => {
         <h5 className="card-title">{journal.title}</h5>
         <p className="card-text">{journal.content}</p>
         <button
-          className="btn btn-danger"
-          onClick={() => deleteJournal(journal.id)}
+          className="btn"
+          style={{ backgroundColor: 'beige', color: '#333', border: '1px solid #ccc' }}
+          onClick={() => deleteJournal(journal.date)}
         >
-          Delete
+          Remove
         </button>
       </div>
     </div>

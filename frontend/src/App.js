@@ -22,8 +22,8 @@ function App() {
     fetchJournals();
   };
 
-  const deleteJournal = async (id) => {
-    await axios.delete(`http://localhost:8080/journal/id/${id}`);
+  const deleteJournal = async (date) => {
+    await axios.delete(`http://localhost:8080/journal/date/${date}`);
     fetchJournals();
   };
 

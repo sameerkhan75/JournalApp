@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 const AddJournal = ({ addJournal }) => {
-  const [id, setId] = useState('');
+  const [date, setDate] = useState('');
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
   const [image, setImage] = useState(null);
@@ -21,14 +21,14 @@ const AddJournal = ({ addJournal }) => {
 
   const submit = (e) => {
     e.preventDefault();
-    if (!id || !title || !content) {
+    if (!date || !title || !content) {
       alert('All fields are required!');
       return;
     }
     
-    const journalData = { id: parseInt(id), title, content, image: imagePreview };
+    const journalData = { date, title, content, image: imagePreview };
     addJournal(journalData);
-    setId('');
+    setDate('');
     setTitle('');
     setContent('');
     setImage(null);
@@ -37,21 +37,22 @@ const AddJournal = ({ addJournal }) => {
 
   return (
     <form onSubmit={submit}>
-      <h3>Add Journal Entry</h3>
+      <h3>Share your day</h3>
       <div className="mb-2">
+        <label htmlFor="date-input" className="form-label">Day?</label>
         <input
-          type="number"
+          type="date"
           className="form-control"
-          placeholder="ID"
-          value={id}
-          onChange={(e) => setId(e.target.value)}
+          placeholder="Date"
+          value={date}
+          onChange={(e) => setDate(e.target.value)}
         />
       </div>
       <div className="mb-2">
         <input
           type="text"
           className="form-control"
-          placeholder="Title"
+          placeholder="Highlights"
           value={title}
           onChange={(e) => setTitle(e.target.value)}
         />
@@ -59,7 +60,7 @@ const AddJournal = ({ addJournal }) => {
       <div className="mb-2">
         <textarea
           className="form-control"
-          placeholder="Content"
+          placeholder="Narrate your day"
           value={content}
           onChange={(e) => setContent(e.target.value)}
         ></textarea>
