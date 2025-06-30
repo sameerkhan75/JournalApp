@@ -1,7 +1,7 @@
 package com.codewithsam.store.entity;
 
 public class JournalEntry {
-    private long id;
+    private String date;
     private String title;
     private String content;
     private String image;
@@ -10,8 +10,8 @@ public class JournalEntry {
         return content;
     }
 
-    public void setId(long id) {
-        this.id = id;
+    public void setDate(String date) {
+        this.date = date;
     }
 
     public void setTitle(String title) {
@@ -26,8 +26,8 @@ public class JournalEntry {
         return title;
     }
 
-    public long getId() {
-        return id;
+    public String getDate() {
+        return date;
     }
 
     public String getImage() {

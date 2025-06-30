@@ -84,3 +84,5 @@ fetch('http://localhost:8080/api/images/upload', {
 Images are stored in `./uploads/images` directory and metadata in H2 database.
 File size limit: 10MB
 Supported formats: JPG, JPEG, PNG, GIF, BMP, WebP 
+
+you can share your glimpse of the day here

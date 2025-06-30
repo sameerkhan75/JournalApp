@@ -1,1 +1,2 @@
 # JournalApp
+for journaling

@@ -16,7 +16,7 @@ import java.util.Map;
 @RequestMapping("/journal")
 public class JournalEntryController {
 
-    private Map<Long, JournalEntry> journalEntries=new HashMap<>();
+    private Map<String, JournalEntry> journalEntries = new HashMap<>();
 
     @GetMapping
     public List<JournalEntry> getAll() {
@@ -24,22 +24,20 @@ public class JournalEntryController {
     }
     @PostMapping
     public boolean createEntry(@RequestBody JournalEntry myEntry) {
-        journalEntries.put(myEntry.getId(), myEntry);
+        journalEntries.put(myEntry.getDate(), myEntry);
         return true;
     }
-    @GetMapping("id/{myID}")
-    public JournalEntry getById(@PathVariable long myID) {
-        return journalEntries.get(myID);
+    @GetMapping("date/{date}")
+    public JournalEntry getByDate(@PathVariable String date) {
+        return journalEntries.get(date);
     }
-    @PutMapping("id/{id}")
-    public JournalEntry updateEntry(@PathVariable long id, @RequestBody JournalEntry myEntry) {
-        return journalEntries.put(id, myEntry);
-
+    @PutMapping("date/{date}")
+    public JournalEntry updateEntry(@PathVariable String date, @RequestBody JournalEntry myEntry) {
+        return journalEntries.put(date, myEntry);
     }
-
-    @DeleteMapping("id/{myId}")
-    public JournalEntry deleteEntry(@PathVariable long myId) {
-        return journalEntries.remove(myId);
+    @DeleteMapping("date/{date}")
+    public JournalEntry deleteEntry(@PathVariable String date) {
+        return journalEntries.remove(date);
     }
     //helps to get login
 }
